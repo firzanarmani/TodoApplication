@@ -1,6 +1,5 @@
 # README
-
-This README would normally document whatever steps are necessary to get the
+<!-- This README would normally document whatever steps are necessary to get the
 application up and running.
 
 Things you may want to cover:
@@ -21,4 +20,9 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* ... -->
+A Todo application using Ruby on Rails.
+
+Versions:
+    Ruby: 2.5.3
+    Rails: 5.2.2
