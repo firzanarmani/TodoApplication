@@ -1,0 +1,24 @@
+<%# model: @object takes in an object that has been passed in and fills up the fields with its values %>
+<%= form_with(model: @todo, local: true) do |form| %>
+  <%# %>
+  <p>
+    <%= form.label :item %>
+    <br>
+    <%= form.text_field :item %>
+    <% if @todo.errors.any? %>
+      <%# TODO: Improve error message. To show all at once or related errors to their respective fields%>
+      <div id = "error_explanation">
+        <%= @todo.errors.full_messages %>
+      </div>
+    <% end %>
+  </p>
+
+  <p>
+    <%= form.label :details %><br>
+    <%= form.text_area :details %>
+  </p>
+
+  <p>
+    <%= form.submit 'Save' %>
+  </p>
+<% end %>

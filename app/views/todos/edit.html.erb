@@ -1,0 +1,9 @@
+<h1>Edit Todo</h1>
+
+<%= render  "todo_form" %>
+
+<%# Not necessary to include the object/id for the todo_path because you are already in the path of that ID %>
+<%# FIXME: Might break if edit page is linked from the todos index page because not on a todo item route. 
+           Technically should happen since controller sets @todo as the specific id. Doesn't hurt to check %>
+<%= link_to  "Back", todo_path(@todo) %>
+<%# TODO: Change to back button instead of text%>

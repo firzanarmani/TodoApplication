@@ -1,0 +1,17 @@
+<h1>My To-Dos</h1>
+
+<p>
+  <% @todo.each do |todo| %>
+    <p>
+      <h3>
+        <%# TODO: Change placeholder 'completed' unicode symbols to checkboxes %>
+        <%= todo.done ? "\u2611" : "\u2610" %>
+        <%= link_to todo.item, todo_path(todo) %>
+      </h3>
+    </p>
+  <% end %>
+</p>
+
+<p>
+  <%= link_to  "Create new to-do", new_todo_path %>
+</p>

@@ -1,0 +1,23 @@
+<p>
+  <h2>
+  <%= @todo.item %>
+  </h2>
+</p>
+
+<p>
+  <h3>
+  <%= @todo.details %>
+  </h3>
+</p>
+
+<p>
+  <h2>
+  Done: <%= @todo.done ? "\u2611" : "\u2610" %>
+  </h2>
+</p>
+
+<p>
+<%= link_to  "Back", todos_path %>
+<%= link_to  "Edit", edit_todo_path(@todo) %>
+<%= link_to  "Delete", todo_path(@todo), method: :delete, data: {confirm: 'Are you sure?'} %>
+</p>
