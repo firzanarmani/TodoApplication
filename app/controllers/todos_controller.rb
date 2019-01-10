@@ -4,7 +4,9 @@ class TodosController < ApplicationController
   end
 
   def index 
+    #params[:tag] ? @todo = Todo.tagged_with(params[:tag]) : @todo = Todo.all
     @todo = Todo.all
+    @tag = Tag.all
   end
   
   def show
@@ -50,6 +52,6 @@ class TodosController < ApplicationController
   private
     def todo_params
       # strong parameter: forces the item to require fields according to the symbol and allows only the chosen parameters to be passed through
-      params.require(:todo).permit(:item, :details)
+      params.require(:todo).permit(:item, :details, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
     end
 end

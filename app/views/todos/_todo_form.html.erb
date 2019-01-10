@@ -5,18 +5,27 @@
     <%= form.label :item %>
     <br>
     <%= form.text_field :item %>
-    <% if @todo.errors.any? %>
-      <%# TODO: Improve error message. To show all at once or related errors to their respective fields%>
-      <div id = "error_explanation">
+    <div id = "error_explanation">
+      <% if @todo.errors.any? %>
+        <%# TODO: Improve error message. To show all at once or related errors to their respective fields%>
+        <%# FIXME: new div wraps error field 'div class="field_with_errors"'. Can be fixed by properly wrapping the fields and the form properly%>      
         <%= @todo.errors.full_messages %>
-      </div>
     <% end %>
+    </div>    
+
   </p>
 
   <p>
-    <%= form.label :details %><br>
+    <%= form.label :details %>
+    <br>
     <%= form.text_area :details %>
   </p>
+
+  <p>
+    <%#= link_to  "New Tag", model %>
+    <%= form.select :tag_ids, Tag.all.collect { |t| [t.name, t.id] }, include_blank: true %>
+    <%# select (name) (id) (options) - name has already been declared as the scope of the form helper, options is an collection of array of name and id/number of each option%>
+    <%# collect method invokes a block of code for each element of self. In this case, for each item 't' create an array of its name and id%>
 
   <p>
     <%= form.submit 'Save' %>

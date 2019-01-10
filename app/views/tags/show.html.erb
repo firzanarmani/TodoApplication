@@ -1,0 +1,12 @@
+<h2>
+  Items tagged with:
+  <%= @tag.name %>
+</h2>
+
+<p>
+  <% @tag.todos.each do |todo| %>
+    <%= link_to todo.item, todo_path(todo) %>
+    <br>
+    <small><%= todo.details %></small>
+  <% end %>
+</p>

@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root 'main#index'
 
   resources :todos
+  resources :tags
+  #get 'tags/:tag' , to: 'todos#index', as: :tag
 end
