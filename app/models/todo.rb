@@ -7,6 +7,7 @@ class Todo < ApplicationRecord
     # Hence, decided to use this for future-proofing, should the need arise.
     has_many :taggings
     has_many :tags, through: :taggings
+    belongs_to :user
 
     def self.tagged_with(id)
         Tag.find_by!(id: id).todos

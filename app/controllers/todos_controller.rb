@@ -1,22 +1,25 @@
 class TodosController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @todo = Todo.new
   end
 
   def index 
     #params[:tag] ? @todo = Todo.tagged_with(params[:tag]) : @todo = Todo.all
-    @todo = Todo.all
-    @tag = Tag.all
+    @todo = current_user.todos
+    @tag = current_user.tags
   end
   
   def show
-    @todo = Todo.find(params[:id])
+    @todo = current_user.todos.find(params[:id])
   end
 
   def create
     # .create is equivalent to .new followed by .save
     # However, .create does not allow us to catch any validation errors
-    @todo = Todo.new(todo_params) 
+    @todo = Todo.new(todo_params)
+    @todo.user = current_user
 
     # .save returns a boolean if saved. Item is saved only if it passes validation
     if @todo.save
@@ -29,11 +32,11 @@ class TodosController < ApplicationController
   end
 
   def edit
-    @todo = Todo.find(params[:id])
+    @todo = current_user.todos.find(params[:id])
   end
 
   def update
-     @todo = Todo.find(params[:id])
+     @todo = current_user.todos.find(params[:id])
 
      if @todo.update(todo_params)
       redirect_to @todo
@@ -43,7 +46,7 @@ class TodosController < ApplicationController
   end
 
   def destroy
-    @todo = Todo.find(params[:id])
+    @todo = current_user.todos.find(params[:id])
     @todo.destroy
 
     redirect_to todos_path
