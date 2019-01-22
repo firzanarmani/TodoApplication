@@ -1,13 +1,55 @@
-<p>
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>
-  <br>
-  <%#= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> 
-  <%= link_to  "Enter", todos_path %>|
+<%# Landing Page%>
+<%= stylesheet_link_tag 'main', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
-</p>
+<%# Navigation bar%>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="#">LetsDoThis</a>
+    <%# Responsive navbar toggler%>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+        <a class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link">Contact</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link">Github</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<%# Header %>
+<header class="masthead">
+  <div class="container">
+    <div class="intro-text">
+      <div class="intro-lead-in">LetsDoThis</div>
+      <div class="intro-heading">The to-do app you're probably going to need</div>
+      <% if user_signed_in? %>
+        <div class="entry-text">Logged in as <strong><%= current_user.email %></strong></div>
+        <br>
+        <%= link_to  "Enter", todos_path, :class => 'btn btn-primary btn-xl' %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-primary btn-xl' %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-primary btn-xl' %>
+        <%= link_to "Login", new_user_session_path, :class => 'btn btn-primary btn-xl' %>
+      <% end %>
+    </div>
+    <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@glenncarstenspeters?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Glenn Carstens-Peters"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Glenn Carstens-Peters</span></a>
+  </div>
+</header>
+
+<%# About %>
+<section id="about">
+  <div class="container">
+    <div class="row"></div>
+    <div class="row"></div>
+  </div>
+</section>

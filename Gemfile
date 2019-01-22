@@ -40,6 +40,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap'
 gem 'jquery-rails'
 
+# Use Chosen for multi-item select
+gem 'chosen-rails'
+
 # Use FontAwesome
 gem 'font-awesome-rails'
 

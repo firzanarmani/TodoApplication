@@ -1,31 +1,28 @@
 <%# model: @object takes in an object that has been passed in and fills up the fields with its values %>
 <%= form_with(model: @todo, local: true) do |form| %>
   <%# %>
-  <p>
-    <%= form.label :item %>
-    <br>
-    <%= form.text_field :item %>
-    <div id = "error_explanation">
-      <% if @todo.errors.any? %>
-        <%# TODO: Improve error message. To show all at once or related errors to their respective fields%>
-        <%# FIXME: new div wraps error field 'div class="field_with_errors"'. Can be fixed by properly wrapping the fields and the form properly%>      
-        <%= @todo.errors.full_messages %>
+  <div class = "form-group<%= ' has-error' if @todo.errors.has_key?(:item) %> ">
+    <%= form.label :item, class: "control-label" %>
+    <%= form.text_field :item, class: "form-control", placeholder: "What needs to be done?" %>
+    <% @todo.errors.full_messages_for(:item).each do |message| %>
+      <p class="help-block"><%= message %></p>
     <% end %>
-    </div>    
+  </div>
 
-  </p>
-
-  <p>
+  <div class = "form-group">
     <%= form.label :details %>
     <br>
     <%= form.text_area :details %>
-  </p>
+  </div>
 
-  <p>
+  <div class = "form-group">
     <%#= link_to  "New Tag", model %>
-    <%= form.select :tag_ids, Tag.all.collect { |t| [t.name, t.id] }, include_blank: true %>
+    <%= form.label :tags %>
+    <br>
+    <%= form.select :tag_ids, Tag.all.map { |t| [t.name, t.id] }, { include_blank: true }, { :multiple => true, class: 'chosen-select' } %>
     <%# select (name) (id) (options) - name has already been declared as the scope of the form helper, options is an collection of array of name and id/number of each option%>
-    <%# collect method invokes a block of code for each element of self. In this case, for each item 't' create an array of its name and id%>
+    <%# collect method invokes a block of code for each element of self. In this case, for each item 't' create an array of its name and id, exactly the same as the map function%>
+  </div>
 
   <p>
     <%# button_to  "Back", :back %>
