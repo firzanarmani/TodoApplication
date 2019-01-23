@@ -1,34 +1,37 @@
-<p>
-  <h2>
-  <%= @todo.item %>
-  </h2>
-</p>
+<div class="container">
+  <p>
+    <h2>
+    <%= @todo.item %>
+    </h2>
+  </p>
 
-<p>
-  <h3>
-  <%= @todo.details %>
-  </h3>
-</p>
+  <p>
+    <h3>
+    <%= @todo.details %>
+    </h3>
+  </p>
 
-<p>
-  <h2>
-  Done: <%= @todo.done ? "\u2611" : "\u2610" %>
-  </h2>
-</p>
+  <p>
+    <h2>
+    <%# Change to a checkbox that can be changed to mark if completed or otherwise%>
+    Done: <%= @todo.done ? "\u2611" : "\u2610" %>
+    </h2>
+  </p>
 
-<p>
-  <small>
-  <%# Raw method outputs without escaping the string; meaning that the link_to will not be escaped (results in <a    href..> tag to be output on the site as a string) and instead outputs it to the browser %>
-    Tags: <%#= raw @todo.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
-    <%#= raw @todo.tags.map { |tag| tag.name }.map { |tag| link_to tag, tag_path(tag) }.join(', ') %>
-    <% @todo.tags.each do |tag| %>
-      <%= link_to tag.name, tag_path(tag) %>
-    <% end %>
-  </small>
-</p>
+  <p>
+    <small>
+    <%# Raw method outputs without escaping the string; meaning that the link_to will not be escaped (results in <a    href..> tag to be output on the site as a string) and instead outputs it to the browser %>
+      Tags: <%#= raw @todo.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
+      <%#= raw @todo.tags.map { |tag| tag.name }.map { |tag| link_to tag, tag_path(tag) }.join(', ') %>
+      <% @todo.tags.each do |tag| %>
+        <%= link_to tag.name, tag_path(tag) %>
+      <% end %>
+    </small>
+  </p>
 
-<p>
-<%= link_to  "Back", todos_path %>
-<%= link_to  "Edit", edit_todo_path(@todo) %>
-<%= link_to  "Delete", todo_path(@todo), method: :delete, data: {confirm: 'Are you sure?'} %>
-</p>
+  <p>
+  <%= link_to  "Back", todos_path %>
+  <%= link_to  "Edit", edit_todo_path(@todo) %>
+  <%= link_to  "Delete", todo_path(@todo), method: :delete, data: {confirm: 'Are you sure?'} %>
+  </p>
+</div>
