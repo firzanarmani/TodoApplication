@@ -1,3 +1,13 @@
+<script type="text/javascript">
+$(function() {
+    $(".chosen-select").chosen({
+      allow_single_deselect: true,
+      no_results_text: 'No results matched',
+      width: '200px',
+      });
+});
+</script>
+
 <%# model: @object takes in an object that has been passed in and fills up the fields with its values %>
 <%= form_with(model: @todo, local: true) do |form| %>
   <%# %>
@@ -19,7 +29,7 @@
     <%#= link_to  "New Tag", model %>
     <%= form.label :tags %>
     <br>
-    <%= form.select :tag_ids, Tag.all.map { |t| [t.name, t.id] }, { include_blank: true }, { :multiple => true, class: 'chosen-select' } %>
+    <%= form.select :tag_ids, Tag.all.map { |t| [t.name, t.id] }, { }, { multiple: true, class: "chosen-select", data: { placeholder: "Choose from existing tags"} } %>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target=#tagModal>Add new tag</button>
     <%# select (name) (id) (options) - name has already been declared as the scope of the form helper, options is an collection of array of name and id/number of each option%>
     <%# collect method invokes a block of code for each element of self. In this case, for each item 't' create an array of its name and id, exactly the same as the map function%>
@@ -34,3 +44,4 @@
 <div class="modal" id="tagModal" tabindex="-1" role="dialog">
   <%= render "tags/tag_form" %>
 </div>
+

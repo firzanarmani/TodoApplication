@@ -16,6 +16,5 @@
 //= require_tree .
 //= require jquery3
 //= require chosen-jquery
-//= require scaffold
 //= require popper
 //= require bootstrap
