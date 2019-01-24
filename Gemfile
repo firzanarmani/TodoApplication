@@ -42,7 +42,6 @@ gem 'jquery-rails'
 
 # Use Chosen for multi-item select
 gem 'chosen-rails'
-gem 'bootstrap-chosen-rails'
 
 # Use FontAwesome
 gem 'font-awesome-rails'
