@@ -1,5 +1,13 @@
 <div class="container">
-  <h1>New To-Do</h1>
-  <%= render  "todo_form" %>
+  <div class="row">
+    <div class="col-sm-11 col-md-9 col-lg-7 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h4 class="card-title text-center">Add a To-do</h4>
+            <%= render partial: "todo_form", locals:{ cancel_url: todos_path} %>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<%# TODO: Instead of using a back button, close the modal and use the todos_path%>

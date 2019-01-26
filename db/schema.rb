@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 2019_01_12_214729) do
     t.string "item", null: false
     t.text "details"
     t.boolean "done", default: false, null: false
+    t.date "ddeadline"
+    t.time "tdeadline"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

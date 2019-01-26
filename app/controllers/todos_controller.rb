@@ -55,6 +55,6 @@ class TodosController < ApplicationController
   private
     def todo_params
       # strong parameter: forces the item to require fields according to the symbol and allows only the chosen parameters to be passed through
-      params.require(:todo).permit(:item, :details, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
+      params.require(:todo).permit(:item, :details, :ddeadline, :tdeadline, :tag, { tag_ids: [] }, :tag_ids)
     end
 end
