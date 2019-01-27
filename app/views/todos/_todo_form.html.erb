@@ -27,31 +27,18 @@ $(function() {
     });
     $("#alldayCheck").change(function() {
       if(this.checked !=true) {
-<<<<<<< HEAD
         $("#timePicker").show();
       } else {
         $("#timePicker").hide();
-=======
-        $("#timePicker").hide();
-      } else {
-        $("#timePicker").show();
->>>>>>> e74a9936f86d7112b54bc6b3ce42dcd00f98e94e
       }
     });
     $("#alldayCheck").ready(function() {
       if(<%= @todo.tdeadline.nil?%>) {
         $("#timePicker").hide();
-<<<<<<< HEAD
         $("#alldayCheck").prop('checked', true);
       } else {
         $("#timePicker").show();
         $("#alldayCheck").prop('checked', false);
-=======
-        $("#alldayCheck").prop('checked', false);
-      } else {
-        $("#timePicker").show();
-        $("#alldayCheck").prop('checked', true);
->>>>>>> e74a9936f86d7112b54bc6b3ce42dcd00f98e94e
       }
     });
 });
