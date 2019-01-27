@@ -1,27 +1,37 @@
 <div class="container">
-  <h1>My To-Dos</h1>
+  <div class="row">
+    <div class="col-sm-11 col-md-9 col-lg-7 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h4 class="card-title text-center">My To-dos</h4>
 
-  <div class="container">
-  <p>
-    <% @todo.each do |todo| %>
-      <h2><%= todo.done ? "\u2611" : "\u2610" %>
-      <%= link_to todo.item, todo_path(todo) %></h2>
-    <% end %>
-  </p>
-  <br>
-  All tags:
-  <p>
-    <% @tag.each do |tag| %>
-      <%= link_to tag.name, tag_path(tag) %></h2>
-    <% end %>
-  </p>
-  <br>
-  <p>
-  Completed to-dos
-  <%# Toggle to show completed todos%>
-  </p>
-  <p>
-    <%= link_to  "Create new to-do", new_todo_path %>
-  </p>
+          <div class="container">
+          <p>
+            <% @todo.each do |todo| %>
+              <h2>
+              <%= link_to todo.item, todo_path(todo) %>
+              <%= (todo.done ? "\u2611" : "\u2610")  %>
+              </h2>
+            <% end %>
+          </p>
+          <br>
+          All tags:
+          <p>
+            <% @tag.each do |tag| %>
+              <%= link_to tag.name, tag_path(tag) %></h2>
+            <% end %>
+          </p>
+          <br>
+          <p>
+          <%#Completed to-dos%>
+          <%# Toggle to show completed todos%>
+          </p>
+          <p>
+            <%= link_to  "Create new to-do", new_todo_path, class:"btn btn-primary", style:"margin-left:0px"%>
+          </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
