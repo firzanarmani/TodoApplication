@@ -1,4 +1,5 @@
 class TodosController < ApplicationController
+  protect_from_forgery prepend: true, with: :exception
   before_action :authenticate_user!
 
   def new
@@ -52,9 +53,20 @@ class TodosController < ApplicationController
     redirect_to todos_path
   end
 
+  def done
+    @todo = Todo.find(params[:id])
+    if @todo.done == false
+      @todo.update_attribute(:done, true)
+      redirect_to @todo
+    else
+      @todo.update_attribute(:done, false)
+      redirect_to @todo
+    end
+  end
+
   private
     def todo_params
       # strong parameter: forces the item to require fields according to the symbol and allows only the chosen parameters to be passed through
-      params.require(:todo).permit(:item, :details, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
+      params.require(:todo).permit(:item, :details, :ddeadline, :tdeadline, :tag, { tag_ids: [] }, :tag_ids)
     end
 end

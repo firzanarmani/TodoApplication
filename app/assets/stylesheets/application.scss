@@ -12,12 +12,7 @@
  *
  */
 @import 'bootstrap';
-@import 'chosen';
 @import 'font-awesome';
-
-// Place all the styles related to the Main controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-// Modified template to own personal liking.
-// Credits as below
+@import 'chosen-bs4';
+@import 'allinone';
+@import 'bootstrap_notify';

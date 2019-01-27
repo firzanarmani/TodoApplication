@@ -57,7 +57,9 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
-    bootstrap-chosen-rails (0.0.4)
+    bootstrap_notify (0.0.5)
+      jquery-rails
+      rails (>= 3.2.8)
     builder (3.2.3)
     byebug (10.0.2)
     capybara (3.12.0)
@@ -236,7 +238,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap
-  bootstrap-chosen-rails
+  bootstrap_notify
   byebug
   capybara (>= 2.15)
   chosen-rails

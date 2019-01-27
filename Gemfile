@@ -46,6 +46,9 @@ gem 'chosen-rails'
 # Use FontAwesome
 gem 'font-awesome-rails'
 
+# Use Bootstrap-Notify for Growl-like messages
+gem 'bootstrap_notify'
+
 # Use Devise
 gem 'devise'
 

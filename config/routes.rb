@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   get 'main/index'
   root 'main#index'
 
-  resources :todos
+  resources :todos do
+    member do
+      patch 'done'
+    end
+  end
   resources :tags
 end

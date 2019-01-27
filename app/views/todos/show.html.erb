@@ -1,37 +1,33 @@
 <div class="container">
-  <p>
-    <h2>
-    <%= @todo.item %>
-    </h2>
-  </p>
+  <div class="row">
+    <div class="col-sm-11 col-md-9 col-lg-7 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <div class="row-12">
+              <%= link_to "", todos_path, {class: "fa fa-arrow-left", style:"margin-top:10px;position:absolute;"} %>
+              <h4 class="card-title text-center"><%= @todo.item %></h4>
+              <%= @todo.done ? (link_to "", done_todo_path(@todo), remote: true, method: :patch, data: {confirm: 'Mark as not done?'}, class: "fa fa-check-square fa-2x")
+                             : (link_to "", done_todo_path(@todo), remote: true, method: :patch, data: {confirm: 'Mark as done?'}, class: "fa fa-square-o fa-2x") %>
+          </div>
+          <div>
+            <%= @todo.details %>
+          </div>
 
-  <p>
-    <h3>
-    <%= @todo.details %>
-    </h3>
-  </p>
-
-  <p>
-    <h2>
-    <%# Change to a checkbox that can be changed to mark if completed or otherwise%>
-    Done: <%= @todo.done ? "\u2611" : "\u2610" %>
-    </h2>
-  </p>
-
-  <p>
-    <small>
-    <%# Raw method outputs without escaping the string; meaning that the link_to will not be escaped (results in <a    href..> tag to be output on the site as a string) and instead outputs it to the browser %>
-      Tags: <%#= raw @todo.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
-      <%#= raw @todo.tags.map { |tag| tag.name }.map { |tag| link_to tag, tag_path(tag) }.join(', ') %>
-      <% @todo.tags.each do |tag| %>
-        <%= link_to tag.name, tag_path(tag) %>
-      <% end %>
-    </small>
-  </p>
-
-  <p>
-  <%= link_to  "Back", todos_path %>
-  <%= link_to  "Edit", edit_todo_path(@todo) %>
-  <%= link_to  "Delete", todo_path(@todo), method: :delete, data: {confirm: 'Are you sure?'} %>
-  </p>
+          <div>
+            <small>
+              Tags: 
+              <% @todo.tags.each do |tag| %>
+                <%= link_to tag.name, tag_path(tag) %>
+              <% end %>
+            </small>
+          </div>
+          <hr class="my-4">
+          <div class="row">
+            <%= link_to  "Edit", edit_todo_path(@todo) %>
+            <%= link_to  "Delete", todo_path(@todo), method: :delete, data: {confirm: 'Are you sure?'} %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

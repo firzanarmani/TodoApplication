@@ -9,24 +9,24 @@ class Todo < ApplicationRecord
     has_many :tags, through: :taggings
     belongs_to :user
 
-    def self.tagged_with(id)
-        Tag.find_by!(id: id).todos
-        # find_by!(arg, *args) - Finds the first record matching the specified conditions.
-        #                        No implied ordering. If no record found, raises an ActiveRecord::RecordNotFound error
-    end
+    # def self.tagged_with(id)
+    #     Tag.find_by!(id: id).todos
+    #     # find_by!(arg, *args) - Finds the first record matching the specified conditions.
+    #     #                        No implied ordering. If no record found, raises an ActiveRecord::RecordNotFound error
+    # end
 
-    def self.tag_counts
-        Tag.select('tags.*, count(taggings.tag_id) as count').joins(:taggings).group('taggings.tag_id')
-        # select(*fields)
-    end
+    # def self.tag_counts
+    #     Tag.select('tags.*, count(taggings.tag_id) as count').joins(:taggings).group('taggings.tag_id')
+    #     # select(*fields)
+    # end
 
-    def tag_list
-        tags.map(&:name).join(', ')
-    end
+    # def tag_list
+    #     tags.map(&:name).join(', ')
+    # end
 
-    def tag_list=(names)
-        self.tags = names.split(',').map do |n|
-            Tag.where(name: n.strip).first_or_create!
-        end
-    end
+    # def tag_list=(names)
+    #     self.tags = names.split(',').map do |n|
+    #         Tag.where(name: n.strip).first_or_create!
+    #     end
+    # end
 end

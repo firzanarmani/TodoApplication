@@ -18,3 +18,4 @@
 //= require chosen-jquery
 //= require popper
 //= require bootstrap
+//= require bootstrap_notify
