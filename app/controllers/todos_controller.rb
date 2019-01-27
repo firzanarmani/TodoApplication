@@ -1,5 +1,6 @@
 class TodosController < ApplicationController
   protect_from_forgery prepend: true, with: :exception
+  skip_before_action :verify_authenticity_token, only: :update
   before_action :authenticate_user!
 
   def new

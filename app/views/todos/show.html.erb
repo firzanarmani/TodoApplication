@@ -22,9 +22,9 @@
             </small>
           </div>
           <hr class="my-4">
-          <div class="row">
-            <%= link_to  "Edit", edit_todo_path(@todo) %>
-            <%= link_to  "Delete", todo_path(@todo), method: :delete, data: {confirm: 'Are you sure?'} %>
+          <div class="form-group">
+            <%= link_to  "Delete", todo_path(@todo), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-secondary", style:"margin-left:0px" %>
+            <%= link_to  "Edit", edit_todo_path(@todo), class: "btn btn-primary" %>
           </div>
         </div>
       </div>
