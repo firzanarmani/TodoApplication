@@ -10,10 +10,15 @@
             <% @todo.each do |todo| %>
               <h2>
               <%= link_to todo.item, todo_path(todo) %>
-              <%= (todo.done ? "\u2611" : "\u2610")  %>
+              <% if todo.done %>
+              <div class= "fa fa-check-square fa-1x" style= "position:relative;float:right;margin-top:5px;color:#fec503"/>
+              <% else %>
+              <div class= "fa fa-square-o fa-1x" style= "position:relative;float:right;margin-top:5px;color:#fec503"/>
+              <% end %>
               </h2>
             <% end %>
           </p>
+          <br>
           <br>
           All tags:
           <p>
@@ -27,7 +32,7 @@
           <%# Toggle to show completed todos%>
           </p>
           <p>
-            <%= link_to  "Create new to-do", new_todo_path, class:"btn btn-primary", style:"margin-left:0px"%>
+            <%= link_to  "Create new to-do", new_todo_path, class:"btn btn-primary", style:"position:relative;float:right"%>
           </p>
           </div>
         </div>

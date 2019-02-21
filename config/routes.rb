@@ -8,5 +8,13 @@ Rails.application.routes.draw do
       patch 'done'
     end
   end
-  resources :tags
+  
+  resources :tags do
+    member do
+      get "tags/tag_form" => 'tags#new', :as => :new
+    end
+  end
+
+
+
 end

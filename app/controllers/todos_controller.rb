@@ -5,6 +5,7 @@ class TodosController < ApplicationController
 
   def new
     @todo = Todo.new
+    @tag = Tag.new
   end
 
   def index 
@@ -22,6 +23,7 @@ class TodosController < ApplicationController
     # However, .create does not allow us to catch any validation errors
     @todo = Todo.new(todo_params)
     @todo.user = current_user
+    
 
     # .save returns a boolean if saved. Item is saved only if it passes validation
     if @todo.save
@@ -31,6 +33,7 @@ class TodosController < ApplicationController
       render 'new'
     # .create! is a another possible solution. It raises an exception when validation fails
     end
+
   end
 
   def edit
@@ -70,4 +73,9 @@ class TodosController < ApplicationController
       # strong parameter: forces the item to require fields according to the symbol and allows only the chosen parameters to be passed through
       params.require(:todo).permit(:item, :details, :ddeadline, :tdeadline, :tag, { tag_ids: [] }, :tag_ids)
     end
+
+    # def tag_params
+    #   params.require(:tag).permit(:name, :tags)
+    # end
+    
 end

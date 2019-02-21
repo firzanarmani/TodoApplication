@@ -32,11 +32,12 @@
       <div class="intro-lead-in">LetsDoThis</div>
       <div class="intro-heading">The to-do app you're probably going to need</div>
       <% if user_signed_in? %>
-        <div class="entry-text">Logged in as <strong><%= current_user.email %></strong></div>
+        <div class="entry-text">Logged in as <b><%= current_user.email %></b></div>
         <br>
         <%= link_to  "Enter", todos_path, :class => 'btn btn-primary btn-xl' %>
         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-primary btn-xl' %>
       <% else %>
+        <div class="entry-text"><strong><br><br></strong></div>
         <%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-primary btn-xl' %>
         <%= link_to "Login", new_user_session_path, :class => 'btn btn-primary btn-xl' %>
       <% end %>

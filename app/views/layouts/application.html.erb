@@ -17,17 +17,27 @@
 
     <script type="text/javascript">
       $(function() {
+        var notice = "<%= :notice %>" + " ";
+        var alert = "<%= :alert %>" + " ";
         $('#noticeNotif').notify({
-          message: { text: "<%= notice %>",
+          message: { text: notice,
                      type: "success",
                      transition: "fade",
-                     fadeOut: {enabled: true, delay: 3000}}
+                     delay: 5000,
+                     fadeOut: {enabled: true}}
+          }, {
+            delay: 5000,
+            timer: 1000
           }).show();
         $('#alert').notify({
-          message: { text: "<%= alert %>",
+          message: { text: alert,
                      type: "danger",
                      transition: "fade",
-                     fadeOut: {enabled: true, delay: 3000}}
+                     delay: 5000,
+                     fadeOut: {enabled: true}
+          }, {
+            delay: 5000,
+            timer: 1000
           }).show();
       });
     </script>
@@ -35,12 +45,13 @@
 
   <body>
 
-  <% if notice %>
-    <div class="notifications bottom-right" id="noticeNotif"></div>
-  <% end %>
-  <% if alert %>
-    <div class="notifications bottom-right" id="alertNotif"></div>
-  <% end %>
+  
     <%= yield %>
+    <% if notice %>
+      <div class="notifications bottom-right" id="noticeNotif"></div>
+    <% end %>
+    <% if alert %>
+      <div class="notifications bottom-right" id="alertNotif"></div>
+    <% end %>
   </body>
 </html>

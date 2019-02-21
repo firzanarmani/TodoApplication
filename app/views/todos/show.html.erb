@@ -3,11 +3,11 @@
     <div class="col-sm-11 col-md-9 col-lg-7 mx-auto">
       <div class="card card-signin my-5">
         <div class="card-body">
-          <div class="row-12">
-              <%= link_to "", todos_path, {class: "fa fa-arrow-left", style:"margin-top:10px;position:absolute;"} %>
+          <div >
+              <%= link_to "", todos_path, {class: "fa fa-arrow-left", style:"margin-top:10px;position:relative;float:left"} %>
+              <%= @todo.done ? (link_to "", done_todo_path(@todo), remote: true, method: :patch, data: {confirm: 'Mark as not done?'}, class: "fa fa-check-square fa-2x" , style: "position:relative;float:right;margin-top:3px")
+                             : (link_to "", done_todo_path(@todo), remote: true, method: :patch, data: {confirm: 'Mark as done?'}, class: "fa fa-square-o fa-2x", style: "position:relative;float:right;margin-top:3px") %>
               <h4 class="card-title text-center"><%= @todo.item %></h4>
-              <%= @todo.done ? (link_to "", done_todo_path(@todo), remote: true, method: :patch, data: {confirm: 'Mark as not done?'}, class: "fa fa-check-square fa-2x")
-                             : (link_to "", done_todo_path(@todo), remote: true, method: :patch, data: {confirm: 'Mark as done?'}, class: "fa fa-square-o fa-2x") %>
           </div>
           <div>
             <%= @todo.details %>
@@ -24,7 +24,7 @@
           <hr class="my-4">
           <div class="form-group">
             <%= link_to  "Delete", todo_path(@todo), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-secondary", style:"margin-left:0px" %>
-            <%= link_to  "Edit", edit_todo_path(@todo), class: "btn btn-primary" %>
+            <%= link_to  "Edit", edit_todo_path(@todo), class: "btn btn-primary", style: "position:relative;float:right" %>
           </div>
         </div>
       </div>
