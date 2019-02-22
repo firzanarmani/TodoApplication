@@ -1,10 +1,10 @@
 # README
-Name: Firzan Armani
+Name: Firzan Armani<br>
 Matriculation No: A0184164A
 
 # Credit
-BlackRockDigital LLC - Agency Bootstrap Template
-Font Awesome
-Bootstrap
-Robert McIntosh - Bootstrap-Notify
-Tse-Ching Ho - Chosen-Rails
+BlackRockDigital LLC - Agency Bootstrap Template<br>
+Font Awesome<br>
+Bootstrap<br>
+Robert McIntosh - Bootstrap-Notify<br>
+Tse-Ching Ho - Chosen-Rails<br>
