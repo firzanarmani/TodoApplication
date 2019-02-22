@@ -166,7 +166,7 @@ img::-moz-selection {
 header.masthead {
   text-align: center;
   color: white;
-  size: 100vw 100vh;
+  height: 100%;
   background-image: asset-data-url("header-bg.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
